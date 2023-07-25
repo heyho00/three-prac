@@ -23,7 +23,7 @@ export default function App() {
 }
 
 function Sphere() {
-  const { roughness } = useControls({ roughness: { value: 1, min: 0, max: 1 } })
+  const { roughness } = { roughness: { value: 1, min: 0, max: 1 } }
   return (
     <Center top>
       <mesh castShadow>
@@ -39,7 +39,7 @@ function Env() {
   // You can use the "inTransition" boolean to react to the loading in-between state,
   // For instance by showing a message
   const [inTransition, startTransition] = useTransition()
-  const { blur } = useControls({
+  const { blur } = {
     blur: { value: 0.65, min: 0, max: 1 },
     preset: {
       value: preset,
@@ -49,6 +49,6 @@ function Env() {
       // That way we can hang onto the current environment until the new one has finished loading ...
       onChange: (value) => startTransition(() => setPreset(value))
     }
-  })
+  }
   return <Environment preset={preset} background blur={blur} />
 }
